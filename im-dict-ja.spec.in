@@ -1,0 +1,62 @@
+Name:       @PACKAGE_NAME@
+Version:    @PACKAGE_VERSION@
+Release:    1%{?dist}
+Summary:    Japanese word dictionary set for input method
+License:    GPLv2+
+Group:      System Environment/Libraries
+URL:        http://code.google.com/p/ibus/
+Source0:    http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
+
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires:  gettext-devel
+BuildRequires:  libtool
+BuildRequires:  pkgconfig
+BuildRequires:  intltool
+BuildRequires:  glib2-devel
+BuildRequires:  libxml2-devel
+BuildRequires:  gcc
+
+%description
+Japanese word dictionary set for input method. Those dictionaries can be used
+with ibus-anthy.
+
+%package devel
+Summary:    Development tools for im-dict-ja
+Group:      Development/Libraries
+Requires:   %{name} = %{version}-%{release}
+
+%description devel
+The im-dict-ja-devel package contains im-dict-gen to generate dictionaries
+
+%prep
+%setup -q
+
+%build
+%configure --disable-static
+make %{?_smp_mflags}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make DESTDIR=${RPM_BUILD_ROOT} install
+
+%find_lang %{name}
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root,-)
+%doc AUTHORS COPYING README
+%{_datadir}/im-dict/desktop
+%{_datadir}/im-dict/dict
+%{_datadir}/im-dict/src
+
+%files devel -f %{name}.lang
+%defattr(-,root,root,-)
+%{_bindir}/im-dict-gen
+
+%changelog
+* @DATE_DISPLAY@ Takao Fujiwara <takao.fujiwara1@gmail.com> - @PACKAGE_VERSION@-1
+- Current version.

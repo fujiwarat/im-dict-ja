@@ -1,0 +1,7 @@
+N - noun
+A - adjective
+D - adverb
+V - verb
+U - auxiliary verb
+I - interjection
+# - this is comment line
