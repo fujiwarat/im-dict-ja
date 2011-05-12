@@ -22,6 +22,8 @@
 
 dictsrcdir = $(datadir)/im-dict/src
 dictsrc_DATA = \
+	oldchar.txt \
+	oldchar.xml \
 	symbol-utf8.txt \
 	symbol.txt \
 	symbol.xml \
@@ -35,7 +37,7 @@ $(DICT_GEN):
 	);
 
 anthydictdir = $(datadir)/im-dict/dict/anthy
-anthydict_DATA = symbol.t
+anthydict_DATA = oldchar.t symbol.t
 %.t : %.txt %.xml
 	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
 	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
@@ -46,7 +48,11 @@ clean-dict: $(anthydict_DATA)
 	rm -f $(anthydict_DATA)
 
 desktopdir = $(datadir)/im-dict/desktop
-desktop_in_files = symbol-ibus.desktop.in
+desktop_in_files = \
+	oldchar-ibus.desktop.in \
+	symbol-ibus.desktop.in \
+	$(NULL)
+
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
