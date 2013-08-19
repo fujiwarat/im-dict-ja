@@ -180,7 +180,7 @@ main (int argc, char *argv[])
     }
     if (argc == 1 || !xml_file) {
         gchar *help = g_option_context_get_help (context, TRUE, NULL);
-        g_print (help);
+        g_print ("%s", help);
         g_free (help);
         return -1;
     }
