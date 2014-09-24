@@ -2,8 +2,8 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method.
 #
-# Copyright (c) 2010-2013 Takao Fujiwara <takao.fujiwara1@gmail.com>
-# Copyright (c) 2010-2013 Red Hat, Inc.
+# Copyright (c) 2010-2014 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2014 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -22,6 +22,8 @@
 
 dictsrcdir = $(datadir)/im-dict/src
 dictsrc_DATA = \
+	emoji.txt \
+	emoji.xml \
 	era.txt \
 	era.xml \
 	oldchar.txt \
@@ -39,7 +41,7 @@ $(DICT_GEN):
 	);
 
 anthydictdir = $(datadir)/im-dict/dict/anthy
-anthydict_DATA = era.t oldchar.t symbol.t
+anthydict_DATA = emoji.t era.t oldchar.t symbol.t
 %.t : %.txt %.xml
 	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
 	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
@@ -51,6 +53,7 @@ clean-dict: $(anthydict_DATA)
 
 desktopdir = $(datadir)/im-dict/desktop
 desktop_in_files = \
+	emoji-ibus.desktop.in \
 	era-ibus.desktop.in \
 	oldchar-ibus.desktop.in \
 	symbol-ibus.desktop.in \

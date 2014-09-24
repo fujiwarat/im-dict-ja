@@ -2,8 +2,8 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method
 #
-# Copyright (c) 2010-2013 Takao Fujiwara <takao.fujiwara1@gmail.com>
-# Copyright (c) 2010-2013 Red Hat, Inc.
+# Copyright (c) 2010-2014 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2014 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -83,6 +83,8 @@ N おんぷ 𝄻
 N おんぷ 𝄼
 N おんぷ 𝄽
 N おんぷ 𝄾
+N おんぷ 🎵
+N おんぷ 🎶
 N かっこ 「
 N かっこ 」
 N かっこ 『
@@ -454,6 +456,12 @@ N たんい ㌣
 N たんい ㌦
 N たんい ㌻
 N たんい ㌫
+N ちぇっくぼたん ☐
+N ちぇっくぼたん ☑
+N ちぇっくぼたん ☒
+N ちぇっくぼっくす ☐
+N ちぇっくぼっくす ☑
+N ちぇっくぼっくす ☒
 N てん 、
 N てん 。
 N てん ，
@@ -532,6 +540,9 @@ N へいほうめーとる ㎡
 N ほし ★
 N ほし ☆
 N ほし ※
+N ぼたん ☐
+N ぼたん ☑
+N ぼたん ☒
 N ぽんど £
 N まる ◯
 N まる ●
@@ -567,6 +578,7 @@ N まるもじ ❻
 N まるもじ ❼
 N まるもじ ❽
 N まるもじ ❾
+N みぎさんかく ⊿
 N みずがめざ ♒
 N みり ㎜
 N みり ㍉

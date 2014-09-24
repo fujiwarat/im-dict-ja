@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: im-dict-ja HEAD\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/ibus/issues/entry\n"
-"POT-Creation-Date: 2013-08-25 23:13+0900\n"
+"POT-Creation-Date: 2014-09-24 15:38+0900\n"
 "PO-Revision-Date: 2010-02-26 17:54+0900\n"
 "Last-Translator: Takao Fujiwara <takao.fujiwara1@gmail.com>\n"
 "Language-Team: Japanese\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/emoji-ibus.desktop.in.h:1
+msgid "Emoji"
+msgstr ""
+
+#: ../data/emoji-ibus.desktop.in.h:2
+msgid "Emoji character"
+msgstr ""
 
 #: ../data/era-ibus.desktop.in.h:1
 msgid "Era"

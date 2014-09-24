@@ -1,5 +1,6 @@
 # Files with translatable strings.
 # Please keep this file in alphabetical order.
+data/emoji-ibus.desktop.in
 data/era-ibus.desktop.in
 data/oldchar-ibus.desktop.in
 data/symbol-ibus.desktop.in
