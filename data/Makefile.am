@@ -2,8 +2,8 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method.
 #
-# Copyright (c) 2010-2014 Takao Fujiwara <takao.fujiwara1@gmail.com>
-# Copyright (c) 2010-2014 Red Hat, Inc.
+# Copyright (c) 2010-2016 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2016 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -42,14 +42,25 @@ $(DICT_GEN):
 
 anthydictdir = $(datadir)/im-dict/dict/anthy
 anthydict_DATA = emoji.t era.t oldchar.t symbol.t
+
 %.t : %.txt %.xml
 	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
 	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
 	echo $(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT}; \
-	$(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT} > $@
+	$(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT} > $@; \
+	$(NULL)
 
-clean-dict: $(anthydict_DATA)
-	rm -f $(anthydict_DATA)
+emoji.txt: emoji-each.txt emoji-emoji.txt
+	@echo "Generate $@"; \
+	$(SED) -e '/^#/d' $(srcdir)/emoji-emoji.txt > emoji-emoji.txt.$$$$; \
+	$(SED) -e "/^#@EMOJI_EMOJI@/r emoji-emoji.txt.$$$$" \
+	        $(srcdir)/emoji-each.txt > emoji-each.txt.$$$$; \
+	$(SED) -e '/^#@EMOJI_EMOJI@/d' emoji-each.txt.$$$$ > emoji.txt; \
+	rm emoji-emoji.txt.$$$$ emoji-each.txt.$$$$; \
+	$(NULL)
+
+clean-dict:
+	rm -f $(anthydict_DATA) emoji.txt
 
 desktopdir = $(datadir)/im-dict/desktop
 desktop_in_files = \
@@ -63,6 +74,8 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST = \
+	emoji-each.txt \
+	emoji-emoji.txt \
 	CLASS.txt \
 	$(NULL)
 
