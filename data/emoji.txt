@@ -2,8 +2,8 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method
 #
-# Copyright (c) 2015 Takao Fujiwara <takao.fujiwara1@gmail.com>
-# Copyright (c) 2015 Red Hat, Inc.
+# Copyright (c) 2015-2016 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2015-2016 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -56,6 +56,8 @@ N いかり 😡
 N いかり 😣
 N いかり 😤
 N いかり 😾
+N いけい ︎
+N いけい ️
 N いしやきいも 🍠
 N いせき ⛬
 N いちご 🍓
@@ -761,6 +763,8 @@ N えもじ 🙍
 N えもじ 🙎
 N えもじ 🙏
 N えもじ ʬ
+N えもじ ︎
+N えもじ ️
 N えんぴつ ✎
 N えんぴつ ✏
 N えんぴつ ✐
@@ -1021,6 +1025,7 @@ N かめら 📷
 N からい 🌶
 N からおけ 🎙
 N からおけ 🎤
+N からー ️
 N かれー 🍛
 N かんがえちゅう 😔
 N かんがえちゅう 💭
@@ -1423,6 +1428,7 @@ N つきみ 🎑
 N つり 🎣
 N てがき ✍
 N てがみ 💌
+N てきすと ︎
 N てすと 📝
 N てにす 🎾
 N てのひら 👐
