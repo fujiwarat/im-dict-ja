@@ -2,8 +2,8 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method
 #
-# Copyright (c) 2010-2014 Takao Fujiwara <takao.fujiwara1@gmail.com>
-# Copyright (c) 2010-2014 Red Hat, Inc.
+# Copyright (c) 2010-2016 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2016 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -456,6 +456,7 @@ N たんい ㌣
 N たんい ㌦
 N たんい ㌻
 N たんい ㌫
+N だくてん ゙
 N ちぇっくぼたん ☐
 N ちぇっくぼたん ☑
 N ちぇっくぼたん ☒
@@ -527,9 +528,14 @@ N ねんごう ㍽
 N ねんごう ㍼
 N ねんごう ㍻
 N ののじ 〃
+N はんだくてん ゚
 N ぱーせんと ㌫
 N ぱーせんと ％
 N ぱーみる ‰
+N びだくおん ゚
+N びだくおん ゜
+N びだくおん ŋ
+N びだくおん g̃
 N ふたござ ♊
 N ふらっと ♭
 N へいせい ㍻
