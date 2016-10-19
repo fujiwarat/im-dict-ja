@@ -42,13 +42,7 @@ $(DICT_GEN):
 
 anthydictdir = $(datadir)/im-dict/dict/anthy
 anthydict_DATA = emoji.t era.t oldchar.t symbol.t
-
-%.t : %.txt %.xml
-	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
-	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
-	echo $(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT}; \
-	$(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT} > $@; \
-	$(NULL)
+nodist_anthydict_DATA = emoji-each.t emoji-emoji.t
 
 emoji.txt: emoji-each.txt emoji-emoji.txt
 	@echo "Generate $@"; \
@@ -59,8 +53,21 @@ emoji.txt: emoji-each.txt emoji-emoji.txt
 	rm emoji-emoji.txt.$$$$ emoji-each.txt.$$$$; \
 	$(NULL)
 
-clean-dict:
-	rm -f $(anthydict_DATA) emoji.txt
+emoji.t: emoji-each.t emoji-emoji.t
+	@echo "Generate $@"; \
+	$(SED) -e '/^#/d' $(srcdir)/emoji-emoji.t > emoji-emoji.t.$$$$; \
+	$(SED) -e "/^#@EMOJI_EMOJI@/r emoji-emoji.t.$$$$" \
+	        $(srcdir)/emoji-each.t > emoji-each.t.$$$$; \
+	$(SED) -e '/^#@EMOJI_EMOJI@/d' emoji-each.t.$$$$ > emoji.t; \
+	rm emoji-emoji.t.$$$$ emoji-each.t.$$$$; \
+	$(NULL)
+
+%.t : %.txt %.xml
+	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
+	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
+	echo $(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT}; \
+	$(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT} > $@; \
+	$(NULL)
 
 desktopdir = $(datadir)/im-dict/desktop
 desktop_in_files = \
@@ -73,9 +80,17 @@ desktop_in_files = \
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
+CLEANFILES = \
+	$(anthydict_DATA) \
+	$(nodist_anthydict_DATA) \
+	emoji.txt \
+	$(NULL)
+
 EXTRA_DIST = \
 	emoji-each.txt \
+	emoji-each.xml \
 	emoji-emoji.txt \
+	emoji-emoji.xml \
 	CLASS.txt \
 	$(NULL)
 
