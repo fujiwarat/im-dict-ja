@@ -55,16 +55,16 @@ emoji.txt: emoji-each.txt emoji-emoji.txt
 
 emoji.t: emoji-each.t emoji-emoji.t
 	@echo "Generate $@"; \
-	$(SED) -e '/^#/d' $(srcdir)/emoji-emoji.t > emoji-emoji.t.$$$$; \
+	$(SED) -e '/^#/d' $(builddir)/emoji-emoji.t > emoji-emoji.t.$$$$; \
 	$(SED) -e "/^#@EMOJI_EMOJI@/r emoji-emoji.t.$$$$" \
-	        $(srcdir)/emoji-each.t > emoji-each.t.$$$$; \
+	        $(builddir)/emoji-each.t > emoji-each.t.$$$$; \
 	$(SED) -e '/^#@EMOJI_EMOJI@/d' emoji-each.t.$$$$ > emoji.t; \
 	rm emoji-emoji.t.$$$$ emoji-each.t.$$$$; \
 	$(NULL)
 
 %.t : %.txt %.xml
-	@SRC_TXT=$$(echo $@ | sed -e "s|\.t|\.txt|"); \
-	 SRC_XML=$$(echo $@ | sed -e "s|\.t|\.xml|"); \
+	@SRC_TXT=$(srcdir)/$$(echo $@ | sed -e "s|\.t|\.txt|"); \
+	 SRC_XML=$(srcdir)/$$(echo $@ | sed -e "s|\.t|\.xml|"); \
 	echo $(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT}; \
 	$(DICT_GEN) --xml $${SRC_XML} $${SRC_TXT} > $@; \
 	$(NULL)
