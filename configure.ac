@@ -2,7 +2,7 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method
 #
-# Copyright (c) 2010-2013 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2021 Takao Fujiwara <takao.fujiwara1@gmail.com>
 # Copyright (c) 2010-2013 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
@@ -48,7 +48,6 @@ AC_PROG_CXX
 AC_ISC_POSIX
 AC_HEADER_STDC
 LT_INIT
-IT_PROG_INTLTOOL([0.35.0])
 
 # For dislpay Date
 m4_define(im_dict_maybe_datedisplay,
@@ -72,10 +71,12 @@ GETTEXT_PACKAGE=im-dict-ja
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 
-AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external])
 
 # OUTPUT files
-AC_CONFIG_FILES([ po/Makefile.in
+AC_CONFIG_FILES([
+po/Makefile.in
 Makefile
 im-dict-ja.spec
 data/Makefile

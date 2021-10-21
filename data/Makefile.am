@@ -2,7 +2,7 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method.
 #
-# Copyright (c) 2010-2016 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2021 Takao Fujiwara <takao.fujiwara1@gmail.com>
 # Copyright (c) 2010-2016 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
@@ -21,8 +21,7 @@
 # USA
 
 dictsrcdir = $(datadir)/im-dict/src
-dictsrc_DATA = \
-	emoji.txt \
+dictsrc_files = \
 	emoji.xml \
 	era.txt \
 	era.xml \
@@ -31,6 +30,10 @@ dictsrc_DATA = \
 	symbol-utf8.txt \
 	symbol.txt \
 	symbol.xml \
+	$(NULL)
+dictsrc_DATA = \
+	$(dictsrc_files) \
+	emoji.txt \
 	$(NULL)
 
 DICT_GEN = $(top_builddir)/src/im-dict-gen
@@ -78,15 +81,19 @@ desktop_in_files = \
 	$(NULL)
 
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+%.desktop: %.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 CLEANFILES = \
 	$(anthydict_DATA) \
+	$(desktop_DATA) \
 	$(nodist_anthydict_DATA) \
 	emoji.txt \
 	$(NULL)
 
 EXTRA_DIST = \
+	$(desktop_in_files) \
+	$(dictsrc_files) \
 	emoji-each.txt \
 	emoji-each.xml \
 	emoji-emoji.txt \

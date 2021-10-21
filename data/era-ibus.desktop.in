@@ -1,7 +1,7 @@
 [Desktop Entry]
-_Name=Era
-_Comment=Era character
+Name=Era
+Comment=Era character
 Icon=accessories-text-editor
-X_IM_DICT_LABEL=年
-X_IM_DICT_FILES=nengou
-X_IM_DICT_PREVIEW_LINES=ALL
+X-IM-DICT-LABEL=年
+X-IM-DICT-FILES=nengou
+X-IM-DICT-PREVIEW-LINES=ALL
