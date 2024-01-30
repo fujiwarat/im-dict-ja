@@ -2,7 +2,7 @@
 #
 # im-dict-ja - Japanese word dictionary set for input method
 #
-# Copyright (c) 2010-2023 Takao Fujiwara <takao.fujiwara1@gmail.com>
+# Copyright (c) 2010-2024 Takao Fujiwara <takao.fujiwara1@gmail.com>
 # Copyright (c) 2010-2013 Red Hat, Inc.
 #
 # This library is free software; you can redistribute it and/or
@@ -339,6 +339,8 @@ N れいわ４ 令和4
 N れいわ４ 2022
 N れいわ５ 令和5
 N れいわ５ 2023
+N れいわ６ 令和6
+N れいわ６ 2024
 N １８６８ 明治1
 N １８６９ 明治2
 N １８７０ 明治3
@@ -499,3 +501,4 @@ N ２０２０ 令和2
 N ２０２１ 令和3
 N ２０２２ 令和4
 N ２０２３ 令和5
+N ２０２４ 令和6
